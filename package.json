@@ -1,0 +1,21 @@
+{
+  "name": "hapi-api-example",
+  "version": "1.0.0",
+  "description": "API example using Hapi ver 17.x.x",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Doron Segal",
+  "license": "ISC",
+  "dependencies": {
+    "boom": "^7.2.0",
+    "hapi": "^17.2.2",
+    "hapi-pino": "^4.0.3",
+    "hoek": "^5.0.3",
+    "inert": "^5.1.0",
+    "joi": "^13.1.2",
+    "wreck": "^14.0.2"
+  }
+}
