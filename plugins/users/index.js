@@ -8,7 +8,15 @@ async function register (server, options) {
   server.route([{
     method: 'GET',
     path: '/users',
-    handler: usersController.getAllUsers
+    handler: usersController.getAllUsers,
+    config: {
+      validate: {
+        query: {
+          offset: Joi.number().integer().min(0).default(0).description('offset number of results'),
+          limit: Joi.number().integer().min(1).default(100).description('limit number of results')
+        }
+      }
+    }
   }, {
     method: 'GET',
     path: '/users/{user_id}',
@@ -17,6 +25,17 @@ async function register (server, options) {
       validate: {
         params: {
           user_id: Joi.number().integer().required().min(-1).description('user_id must be an integer')
+        }
+      }
+    }
+  }, {
+    method: 'GET',
+    path: '/users/username/{username}',
+    handler: usersController.getUserByUsername,
+    config: {
+      validate: {
+        params: {
+          username: Joi.string().required().description('username is required')
         }
       }
     }
